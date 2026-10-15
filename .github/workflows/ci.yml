@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install
+        run: pip install -e '.[test]'
+
+      - name: Test
+        run: python -m pytest -q tests
+
+  package:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Build
+        run: |
+          pip install build twine
+          python -m build
+          twine check --strict dist/*
+
+      - name: Every command loads from the built wheel
+        run: |
+          python -m venv /tmp/wheel
+          /tmp/wheel/bin/pip install dist/*.whl python-openstackclient
+          /tmp/wheel/bin/python - <<'EOF'
+          from importlib.metadata import entry_points
+          eps = list(entry_points(group="openstack.backup.v1"))
+          assert eps, "no openstack backup commands registered"
+          for ep in eps:
+              ep.load()
+          print(f"{len(eps)} commands load")
+          EOF
+          /tmp/wheel/bin/openstack backup version show --help > /dev/null

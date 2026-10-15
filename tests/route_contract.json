@@ -1,0 +1,549 @@
+{
+ "routes": [
+  {
+   "method": "GET",
+   "path": "/v1/plans",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/plans",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/plans/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "PATCH",
+   "path": "/v1/plans/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/plans/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/plans/{id}/refusals",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/plans/{id}/sla",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/resources",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/points",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/points",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/points/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/points/{id}/metrics",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/points/{id}/document",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/points/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/points/{id}/verify",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/retention/simulate",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/restores/estimate",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/restores",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/restores",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/restores/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/attachments",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/attachments",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/attachments/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/jobs",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/jobs/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/jobs/{id}/cancel",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/protection-groups",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/protection-groups/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/protection-groups/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/capabilities",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/healthz",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups/{id}/release",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups/{id}/recover",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups/{id}/test",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups/{id}/resync",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups/{id}/retire",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/protection-groups/{id}/sla",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/protection-groups/{id}/runs",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/protection-groups/{id}/runs/{run_id}",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups/{id}/runs/{run_id}/cancel",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups/{id}/runs/{run_id}/abort",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups/{id}/runs/{run_id}/resume",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/repositories/{id}/inventory",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/protection-groups/{id}/readiness",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/protection-groups/{id}/mirror",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups/{id}/arm",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/protection-groups/{id}/arm",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups/{id}/split-brain/acknowledge",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/protection-groups/{id}/failback-bindings",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/bubble-policies",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/bubble-policies",
+   "surface": "manager"
+  },
+  {
+   "method": "PATCH",
+   "path": "/v1/bubble-policies/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/bubble-policies/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/repositories",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/repositories",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/repositories/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "PATCH",
+   "path": "/v1/repositories/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/repositories/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/repositories/{id}/usage",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/repositories/{id}/domain-keys",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/repositories/{id}/domain-keys/export",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/repositories/{id}/domain-keys/import",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/usage",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/recovery-bindings",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/recovery-bindings",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/recovery-bindings/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/recovery-bindings/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/recovery-bindings/{id}/dry-run",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/recovery-profiles",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/recovery-profiles",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/recovery-profiles/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/standbys",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/standbys",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/standbys/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/standbys/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/standbys/{id}/promote",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/movers",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/repositories/health",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/sites",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/policies",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/policies",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/policies/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "PATCH",
+   "path": "/v1/policies/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/policies/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/policies/{id}/assign",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/policies/{id}/deprecate",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/policies/{id}/retire",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/vaults",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/vaults/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/vaults",
+   "surface": "manager"
+  },
+  {
+   "method": "PATCH",
+   "path": "/v1/vaults/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/vaults/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/legal-holds",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/legal-holds",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/legal-holds/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/coverage",
+   "surface": "manager"
+  },
+  {
+   "method": "POST",
+   "path": "/v1/plans/{id}/undelete",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/plans/{id}/missed-ticks",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/quotas",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/quotas/defaults",
+   "surface": "manager"
+  },
+  {
+   "method": "PUT",
+   "path": "/v1/quotas/defaults",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/quotas/defaults",
+   "surface": "manager"
+  },
+  {
+   "method": "GET",
+   "path": "/v1/quotas/domains/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "PUT",
+   "path": "/v1/quotas/domains/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/quotas/domains/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "PUT",
+   "path": "/v1/quotas/projects/{id}",
+   "surface": "manager"
+  },
+  {
+   "method": "DELETE",
+   "path": "/v1/quotas/projects/{id}",
+   "surface": "manager"
+  }
+ ]
+}

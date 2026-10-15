@@ -1,0 +1,163 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-ferryclient"
+version = "0.17.0"
+description = "OpenStackClient plugin for Ferry backup, recovery and DR"
+readme = "README.rst"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+authors = [{name = "The Ferry Authors"}]
+keywords = ["openstack", "backup", "disaster-recovery", "openstackclient", "ceph"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Environment :: OpenStack",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: System :: Archiving :: Backup",
+]
+dependencies = [
+    "keystoneauth1>=4.0.0",
+    "osc-lib>=2.3.0",
+    "cliff>=3.5.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "requests-mock"]
+
+[project.urls]
+Homepage = "https://osie.io/docs/ferry/"
+Documentation = "https://osie.io/docs/ferry/cli-reference/"
+Source = "https://github.com/osie/python-ferryclient"
+Issues = "https://github.com/osie/python-ferryclient/issues"
+Deployment = "https://github.com/osie/ferry-backup"
+
+# The command noun is `backup` and the catalog service type is `backup`, so
+# API_NAME, this entry point group and `openstack endpoint list` all agree.
+[project.entry-points."openstack.cli.extension"]
+backup = "ferryclient.osc.plugin"
+
+[project.entry-points."openstack.backup.v1"]
+backup_plan_list = "ferryclient.osc.v1.plan:ListPlan"
+backup_plan_show = "ferryclient.osc.v1.plan:ShowPlan"
+backup_plan_create = "ferryclient.osc.v1.plan:CreatePlan"
+backup_plan_set = "ferryclient.osc.v1.plan:SetPlan"
+backup_plan_delete = "ferryclient.osc.v1.plan:DeletePlan"
+backup_plan_restore = "ferryclient.osc.v1.plan:RestorePlan"
+backup_plan_refusal_list = "ferryclient.osc.v1.plan:ListPlanRefusal"
+backup_plan_missed_tick_list = "ferryclient.osc.v1.plan:ListPlanMissedTick"
+backup_plan_sla_show = "ferryclient.osc.v1.plan:ShowPlanSLA"
+
+backup_policy_list = "ferryclient.osc.v1.policy:ListPolicy"
+backup_policy_show = "ferryclient.osc.v1.policy:ShowPolicy"
+backup_policy_create = "ferryclient.osc.v1.policy:CreatePolicy"
+backup_policy_set = "ferryclient.osc.v1.policy:SetPolicy"
+backup_policy_assign = "ferryclient.osc.v1.policy:AssignPolicy"
+backup_policy_deprecate = "ferryclient.osc.v1.policy:DeprecatePolicy"
+backup_policy_retire = "ferryclient.osc.v1.policy:RetirePolicy"
+backup_policy_delete = "ferryclient.osc.v1.policy:DeletePolicy"
+
+backup_vault_list = "ferryclient.osc.v1.vault:ListVault"
+backup_vault_show = "ferryclient.osc.v1.vault:ShowVault"
+
+backup_point_list = "ferryclient.osc.v1.point:ListPoint"
+backup_point_show = "ferryclient.osc.v1.point:ShowPoint"
+backup_point_create = "ferryclient.osc.v1.point:CreatePoint"
+backup_point_delete = "ferryclient.osc.v1.point:DeletePoint"
+backup_point_verify = "ferryclient.osc.v1.point:VerifyPoint"
+backup_point_metrics_show = "ferryclient.osc.v1.point:ShowPointMetrics"
+backup_point_document_show = "ferryclient.osc.v1.point:ShowPointDocument"
+
+backup_restore_list = "ferryclient.osc.v1.restore:ListRestore"
+backup_restore_show = "ferryclient.osc.v1.restore:ShowRestore"
+backup_restore_create = "ferryclient.osc.v1.restore:CreateRestore"
+backup_restore_estimate = "ferryclient.osc.v1.restore:EstimateRestore"
+
+backup_attachment_list = "ferryclient.osc.v1.restore:ListAttachment"
+backup_attachment_create = "ferryclient.osc.v1.restore:CreateAttachment"
+backup_attachment_delete = "ferryclient.osc.v1.restore:DeleteAttachment"
+
+backup_job_list = "ferryclient.osc.v1.job:ListJob"
+backup_job_show = "ferryclient.osc.v1.job:ShowJob"
+backup_job_cancel = "ferryclient.osc.v1.job:CancelJob"
+
+backup_group_list = "ferryclient.osc.v1.group:ListGroup"
+backup_group_show = "ferryclient.osc.v1.group:ShowGroup"
+backup_group_create = "ferryclient.osc.v1.group:CreateGroup"
+backup_group_delete = "ferryclient.osc.v1.group:DeleteGroup"
+backup_group_register = "ferryclient.osc.v1.group:RegisterGroup"
+backup_group_readiness_show = "ferryclient.osc.v1.group:ShowGroupReadiness"
+backup_group_mirror_list = "ferryclient.osc.v1.group:ListGroupMirror"
+backup_group_arm = "ferryclient.osc.v1.group:ArmGroup"
+backup_group_disarm = "ferryclient.osc.v1.group:DisarmGroup"
+backup_group_release = "ferryclient.osc.v1.group:ReleaseGroup"
+backup_group_recover = "ferryclient.osc.v1.group:RecoverGroup"
+backup_group_test = "ferryclient.osc.v1.group:TestGroup"
+backup_group_resync = "ferryclient.osc.v1.group:ResyncGroup"
+backup_group_retire = "ferryclient.osc.v1.group:RetireGroup"
+backup_group_split_brain_acknowledge = "ferryclient.osc.v1.group:AcknowledgeGroupSplitBrain"
+backup_group_failback_bindings_create = "ferryclient.osc.v1.group:CreateGroupFailbackBindings"
+backup_group_sla_show = "ferryclient.osc.v1.group:ShowGroupSLA"
+backup_group_run_list = "ferryclient.osc.v1.group:ListGroupRun"
+backup_group_run_show = "ferryclient.osc.v1.group:ShowGroupRun"
+backup_group_run_cancel = "ferryclient.osc.v1.group:CancelGroupRun"
+backup_group_run_abort = "ferryclient.osc.v1.group:AbortGroupRun"
+backup_group_run_resume = "ferryclient.osc.v1.group:ResumeGroupRun"
+
+backup_bubble_policy_list = "ferryclient.osc.v1.bubble:ListBubblePolicy"
+backup_bubble_policy_create = "ferryclient.osc.v1.bubble:CreateBubblePolicy"
+backup_bubble_policy_set = "ferryclient.osc.v1.bubble:SetBubblePolicy"
+backup_bubble_policy_delete = "ferryclient.osc.v1.bubble:DeleteBubblePolicy"
+
+backup_recovery_binding_list = "ferryclient.osc.v1.recovery:ListRecoveryBinding"
+backup_recovery_binding_show = "ferryclient.osc.v1.recovery:ShowRecoveryBinding"
+backup_recovery_binding_create = "ferryclient.osc.v1.recovery:CreateRecoveryBinding"
+backup_recovery_binding_delete = "ferryclient.osc.v1.recovery:DeleteRecoveryBinding"
+backup_recovery_binding_dry_run = "ferryclient.osc.v1.recovery:DryRunRecoveryBinding"
+backup_recovery_group_list = "ferryclient.osc.v1.recovery:ListRecoveryGroup"
+backup_recovery_profile_list = "ferryclient.osc.v1.recovery:ListRecoveryProfile"
+backup_recovery_profile_create = "ferryclient.osc.v1.recovery:CreateRecoveryProfile"
+backup_recovery_profile_delete = "ferryclient.osc.v1.recovery:DeleteRecoveryProfile"
+
+backup_standby_list = "ferryclient.osc.v1.standby:ListStandby"
+backup_standby_show = "ferryclient.osc.v1.standby:ShowStandby"
+backup_standby_create = "ferryclient.osc.v1.standby:CreateStandby"
+backup_standby_delete = "ferryclient.osc.v1.standby:DeleteStandby"
+backup_standby_promote = "ferryclient.osc.v1.standby:PromoteStandby"
+
+backup_repository_list = "ferryclient.osc.v1.repository:ListRepository"
+backup_repository_show = "ferryclient.osc.v1.repository:ShowRepository"
+backup_repository_create = "ferryclient.osc.v1.repository:CreateRepository"
+backup_repository_set = "ferryclient.osc.v1.repository:SetRepository"
+backup_repository_delete = "ferryclient.osc.v1.repository:DeleteRepository"
+backup_repository_usage_show = "ferryclient.osc.v1.repository:ShowRepositoryUsage"
+
+backup_legal_hold_create = "ferryclient.osc.v1.hold:CreateLegalHold"
+backup_legal_hold_list = "ferryclient.osc.v1.hold:ListLegalHold"
+backup_legal_hold_delete = "ferryclient.osc.v1.hold:DeleteLegalHold"
+
+backup_resource_list = "ferryclient.osc.v1.misc:ListResource"
+backup_mover_list = "ferryclient.osc.v1.misc:ListMover"
+backup_site_list = "ferryclient.osc.v1.misc:ListSite"
+backup_usage_show = "ferryclient.osc.v1.misc:ShowUsage"
+backup_retention_simulate = "ferryclient.osc.v1.misc:SimulateRetention"
+backup_coverage_show = "ferryclient.osc.v1.misc:ShowCoverage"
+backup_key_list = "ferryclient.osc.v1.misc:ListDomainKey"
+backup_key_export = "ferryclient.osc.v1.misc:ExportDomainKey"
+backup_key_import = "ferryclient.osc.v1.misc:ImportDomainKey"
+backup_version_show = "ferryclient.osc.v1.misc:ShowVersion"
+
+[tool.setuptools.packages.find]
+include = ["ferryclient*"]
