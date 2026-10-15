@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "python-ferryclient"
 version = "0.17.0"
 description = "OpenStackClient plugin for Ferry backup, recovery and DR"
-readme = "README.rst"
+readme = "README.md"
 requires-python = ">=3.9"
 license = "Apache-2.0"
 authors = [{name = "The Ferry Authors"}]
